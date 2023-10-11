@@ -43,7 +43,7 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
             </li>
-            
+
             <li class="nav-item">
               <a class="nav-link disabled" aria-disabled="true">Disabled</a>
             </li>
@@ -55,14 +55,21 @@
         </div>
       </div>
     </nav>
-    <div style="color: green;">
-      <%= notice %>
-    </div>
+    <div class="container mt-4">
 
-    <div style="color: red;">
-      <%= alert %>
-    </div>
+      <% if notice.present? %>
+        <div class="alert alert-success" role="alert">
+          <%= notice %>
+        </div>
 
-    <%= yield %>
+      <% end %>
+      <% if alert.present? %>
+        <div class="alert alert-danger" role="alert">
+          <%= alert %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
